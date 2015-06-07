@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WorldGenLib">
+    <output-path>$PROJECT_DIR$/../../Libs/Java/WorldGen</output-path>
+    <root id="archive" name="WorldGenLib.jar">
+      <element id="module-output" name="WorldGenerator" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

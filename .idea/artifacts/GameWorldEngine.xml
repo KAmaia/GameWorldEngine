@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GameWorldEngine">
+    <output-path>$PROJECT_DIR$/../../Libs/Java/WorldGen</output-path>
+    <root id="archive" name="GameWorldEngine.jar">
+      <element id="module-output" name="GameWorldEngine" />
+    </root>
+  </artifact>
+</component>
