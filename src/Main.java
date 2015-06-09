@@ -1,4 +1,4 @@
-import GameEngine.WorldEngine.Map.OverWorldCharMap;
+import GameEngine.WorldEngine.Map.CharMap;
 import GameEngine.WorldEngine.MapGenerator.OverWorldMapGenerator;
 import GameEngine.WorldEngine.World.World;
 import GameEngine.WorldEngine.WorldGenerator.WorldGenerator;
@@ -12,7 +12,7 @@ public class Main {
 		int sizeX = 10;
 		int sizeY = 100;
 		World world = new WorldGenerator(sizeX, sizeY).generateWorld();
-		OverWorldCharMap OWCM = new OverWorldMapGenerator().generateOverWorldCharMap(world);
+		CharMap OWCM = new OverWorldMapGenerator().generateOverWorldCharMap(world);
 		for (int x = 0; x < sizeX; x++) {
 
 			for (int y = 0; y < sizeY; y++) {

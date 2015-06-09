@@ -1,28 +1,41 @@
 package GameEngine.WorldEngine.MapGenerator;
 
+import GameEngine.WorldEngine.Map.CharMap;
 import GameEngine.WorldEngine.Map.MapObject;
-import GameEngine.WorldEngine.Map.OverWorldCharMap;
 import GameEngine.WorldEngine.World.Tile;
 import GameEngine.WorldEngine.World.World;
 
+
 /**
- * Created by Krystal on 2015-06-07.
+ * @author Krystal Amaia
+ *         <p>
+ *          Generates an OverWorld Map.
+ *         </p>
+ * @version 0.1
  */
 public class OverWorldMapGenerator {
 
-	private OverWorldCharMap overWorldCharMap;
+	private CharMap charMap;
 
-	public OverWorldCharMap generateOverWorldCharMap(World world) {
-		overWorldCharMap = new OverWorldCharMap(world.getSIZE_X(), world.getSIZE_Y());
+	/**
+	 * Maps a world.
+	 *
+	 * @param world
+	 * 	   the world to map
+	 *
+	 * @return the map that is created.
+	 */
+	public CharMap generateOverWorldCharMap(World world) {
+		charMap = new CharMap(world.getSIZE_X(), world.getSIZE_Y());
 
 		for (int x = 0; x < world.getSIZE_X(); x++) {
 			for (int y = 0; y < world.getSIZE_Y(); y++) {
 				Tile t = world.getTile(x, y);
-				overWorldCharMap.setTile(x, y, MapObject.getMapTileChar(t.getType()));
+				charMap.setTile(x, y, MapObject.getMapTileChar(t.getType()));
 			}
 
 		}
-		return overWorldCharMap;
+		return charMap;
 	}
 
 }

@@ -2,8 +2,13 @@ package GameEngine.WorldEngine.Map;
 
 import GameEngine.WorldEngine.World.TileType;
 
+
 /**
- * Created by Krystal on 2015-06-08.
+ * @author Krystal Amaia
+ *         <p>
+ *         Enumerates Different TileTypes to their respective characters.
+ *         </p>
+ * @version 0.1
  */
 public enum MapCharType {
 	DIRT(TileType.DIRT, '#'),
@@ -12,6 +17,12 @@ public enum MapCharType {
 	TileType tileType;
 	char     tileChar;
 
+	/**
+	 * @param tileType
+	 * 	   TileType to enumerate
+	 * @param tileChar
+	 * 	   TileChar to link it to.
+	 */
 	private MapCharType(TileType tileType, char tileChar) {
 		this.tileType = tileType;
 		this.tileChar = tileChar;

@@ -1,17 +1,20 @@
 package GameEngine.WorldEngine.World;
 
 import java.util.Random;
-/*Tile.Java
-@author Robert
 
-*/
+/**
+ * @author Krystal Amaia
+ *         <p>
+ *         The basic unit of a world.
+ *         </p>
+ * @version 0.1
+ */
 
 public class Tile {
-	
+
+	private static Random random = new Random();
 	//member variables
 	private TileType type;
-	private int numOfTypes = TileType.values().length;
-	private static Random random = new Random();
 	
 	Tile(){
 		//CTOR
