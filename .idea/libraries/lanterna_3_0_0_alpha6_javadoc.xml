@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lanterna-3.0.0-alpha6-javadoc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../Libs/Java/Lanterna/Lanterna.3.0/lanterna-3.0.0-alpha6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../Libs/Java/Lanterna/Lanterna.3.0/lanterna-3.0.0-alpha6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../Libs/Java/Lanterna/Lanterna.3.0/lanterna-3.0.0-alpha6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

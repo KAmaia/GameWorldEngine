@@ -1,4 +1,4 @@
-package GameWorldGenerationEngine.World;
+package GameEngine.WorldEngine.World;
 
 import java.util.Random;
 
@@ -24,14 +24,18 @@ public class World {
 	private Tile[][] gWorld;
 	private static Random random = new Random();
 
+	/**
+	 * CTor
+	 * @param sizeX The Height of the World.
+	 * @param sizeY The Width of the World
+	 */
 	public World(int sizeX, int sizeY) {
 		SIZE_X = sizeX;
 		SIZE_Y = sizeY;
 	}
 
-
 	/**
-	 * Creates and initializes a new tile array with dimensions matching the required dimensions.
+	 * Initializes the world as VOID.  Use this later to check that the world is whole.
 	 */
 	private void initializeWorld() {
 		gWorld = new Tile[SIZE_X][SIZE_Y];
@@ -61,9 +65,11 @@ public class World {
 		return neighbors;
 	}
 
-
 	/**
-	 * return tile at position
+	 *
+	 * @param x x address of tile to get.
+	 * @param y y address of tile to get.
+	 * @return tile at address [x][y].
 	 */
 	public Tile getTile(int x, int y) {
 		return gWorld[x][y];
@@ -77,12 +83,18 @@ public class World {
 	}
 
 
-	public void setTile(int i, int j, TileType t) {
-		gWorld[i][j].setType(t);
+	public void setTile(int x, int y, TileType t) {
+		gWorld[x][y].setType(t);
 	}
 
-	public Object[][] getTiles() {
+	public Tile[][] getTiles() {
 		return gWorld;
+	}
+	public int getSIZE_X(){
+		return SIZE_X;
+	}
+	public int getSIZE_Y(){
+		return SIZE_Y;
 	}
 }
 

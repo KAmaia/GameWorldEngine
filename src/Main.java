@@ -1,5 +1,7 @@
-import GameWorldGenerationEngine.World.World;
-import GameWorldGenerationEngine.WorldGenerator.WorldGenerator;
+import GameEngine.WorldEngine.Map.OverWorldCharMap;
+import GameEngine.WorldEngine.MapGenerator.OverWorldMapGenerator;
+import GameEngine.WorldEngine.World.World;
+import GameEngine.WorldEngine.WorldGenerator.WorldGenerator;
 
 /**
  * Created by Krystal on 2015-06-05.
@@ -7,9 +9,17 @@ import GameWorldGenerationEngine.WorldGenerator.WorldGenerator;
 
 public class Main {
 	public static void main(String[] args) {
-		World world = new WorldGenerator(10, 11).generateWorld();
-		world.print();
+		int sizeX = 10;
+		int sizeY = 100;
+		World world = new WorldGenerator(sizeX, sizeY).generateWorld();
+		OverWorldCharMap OWCM = new OverWorldMapGenerator().generateOverWorldCharMap(world);
+		for (int x = 0; x < sizeX; x++) {
 
+			for (int y = 0; y < sizeY; y++) {
+				System.out.print(OWCM.getMapTileChar(x, y));
+			}
+			System.out.print("\n");
+		}
 
 	}
 }

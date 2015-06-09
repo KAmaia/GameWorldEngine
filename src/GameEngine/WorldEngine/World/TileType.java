@@ -1,4 +1,4 @@
-package GameWorldGenerationEngine.World;
+package GameEngine.WorldEngine.World;
 
 public enum TileType {
 	//Here we're enumerating out our tile types.  This will make it easier to add tiles in the future.
@@ -12,7 +12,7 @@ public enum TileType {
 			 * String sprite: The image file to load for this tile.
 			 */
 	VOID( false, 0.0, "VOID"),
-	DIRT( true, 1.0, "Dirt");
+	DIRT( true, 1.0, "DIRT");
 
 	//same member variables as our parent class.
 

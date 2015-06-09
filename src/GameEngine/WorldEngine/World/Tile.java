@@ -1,4 +1,4 @@
-package GameWorldGenerationEngine.World;
+package GameEngine.WorldEngine.World;
 
 import java.util.Random;
 /*Tile.Java

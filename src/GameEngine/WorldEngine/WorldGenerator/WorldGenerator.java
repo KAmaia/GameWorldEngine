@@ -1,10 +1,10 @@
-package GameWorldGenerationEngine.WorldGenerator;
+package GameEngine.WorldEngine.WorldGenerator;
 
 
 
-import GameWorldGenerationEngine.Utilities.BoundsChecker;
-import GameWorldGenerationEngine.World.TileType;
-import GameWorldGenerationEngine.World.World;
+import GameEngine.Utilities.BoundsChecker;
+import GameEngine.WorldEngine.World.TileType;
+import GameEngine.WorldEngine.World.World;
 
 /**
  * Created by Krystal on 2015-06-05.
