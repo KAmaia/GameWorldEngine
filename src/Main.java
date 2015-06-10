@@ -1,3 +1,4 @@
+import GameEngine.GraphicsEngine.Windows.AsciiWindows.*;
 import GameEngine.WorldEngine.Map.*;
 import GameEngine.WorldEngine.MapGenerator.*;
 import GameEngine.WorldEngine.World.*;
@@ -17,6 +18,7 @@ public class Main {
 		int sizeY = 100;
 		World world = new WorldGenerator(sizeX, sizeY).generateWorld();
 		CharMap OWCM = new OverWorldMapGenerator().generateOverWorldCharMap(world);
+		SwingTerminalGameWindow gameWindow = new SwingTerminalGameWindow(sizeX, sizeY);
 		for (int x = 0; x < sizeX; x++) {
 
 			for (int y = 0; y < sizeY; y++) {
