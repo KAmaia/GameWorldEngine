@@ -5,5 +5,5 @@ import GraphicsEngine.*;
 /**
  * @author Krystal Amaia
  */
-public class AsciiEngine extends GraphicsEngine {
+public class AsciiTerminalEngine extends GraphicsEngine {
 }

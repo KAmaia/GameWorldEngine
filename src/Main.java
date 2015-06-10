@@ -1,15 +1,19 @@
-import GameEngine.WorldEngine.Map.CharMap;
-import GameEngine.WorldEngine.MapGenerator.OverWorldMapGenerator;
-import GameEngine.WorldEngine.World.World;
-import GameEngine.WorldEngine.WorldGenerator.WorldGenerator;
+import GameEngine.WorldEngine.Map.*;
+import GameEngine.WorldEngine.MapGenerator.*;
+import GameEngine.WorldEngine.World.*;
+import GameEngine.WorldEngine.WorldGenerator.*;
 
 /**
- * Created by Krystal on 2015-06-05.
+ * @author Krystal Amaia
+ *         <p>
+ *         Test class just used to make sure the library works before exporting.
+ *         </p>
+ * @version 0.1
  */
 
 public class Main {
 	public static void main(String[] args) {
-		int sizeX = 10;
+		int sizeX = 20;
 		int sizeY = 100;
 		World world = new WorldGenerator(sizeX, sizeY).generateWorld();
 		CharMap OWCM = new OverWorldMapGenerator().generateOverWorldCharMap(world);

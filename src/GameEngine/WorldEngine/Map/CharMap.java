@@ -1,6 +1,6 @@
 package GameEngine.WorldEngine.Map;
 
-import GameEngine.Utilities.BoundsChecker;
+import GameEngine.Utilities.*;
 
 
 /**
@@ -11,10 +11,8 @@ import GameEngine.Utilities.BoundsChecker;
  * @version 0.1
  */
 public class CharMap {
-	private int sizeY;
-	private int sizeX;
 
-	private Character[][] charMap;
+	private final Character[][] charMap;
 
 	/**
 	 * Constructor
@@ -25,8 +23,8 @@ public class CharMap {
 	 * 	   horizontal size of the map to create
 	 */
 	public CharMap(int size_X, int size_Y) {
-		sizeX = size_X;
-		sizeY = size_Y;
+		int sizeX = size_X;
+		int sizeY = size_Y;
 		charMap = new Character[size_X][size_Y];
 	}
 

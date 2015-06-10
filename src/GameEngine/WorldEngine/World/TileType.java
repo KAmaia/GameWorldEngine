@@ -1,25 +1,34 @@
 package GameEngine.WorldEngine.World;
 
+/**
+ * @author Krystal Amaia
+ *         <p>
+ *         An enumeration of tile types.  Used to quickly set tile types.
+ *         </p>
+ * @version 0.1
+ */
+
 public enum TileType {
-	//Here we're enumerating out our tile types.  This will make it easier to add tiles in the future.
-			/*
-			 * Params:
-			 * char tileChar: Debug purposes, just to display the map in console.
-			 * boolean passable: Whether or not the tile is passable.
-			 * double speedMod: Any units moving through this tile multiply their speed by this.
-			 * String sType: The String version of the tile type
-			 * Unit[5] unitsInMe: Any units that are in the tile.
-			 * String sprite: The image file to load for this tile.
-			 */
-	VOID( false, 0.0, "VOID"),
-	DIRT( true, 1.0, "DIRT");
+
+	VOID(false, 0.0, "VOID"),
+	DIRT(true, 1.0, "DIRT");
 
 	//same member variables as our parent class.
 
-	boolean passable;
-	double  speedmod;
-	String  sType;
+	final boolean passable;
+	final double  speedmod;
+	final String  sType;
 
+	/**
+	 * Enumerator constructor.  Never used Externally.
+	 *
+	 * @param passable
+	 * 	   is the tile passable.
+	 * @param speedMod
+	 * 	   the tiles speed mod.
+	 * @param sType
+	 * 	   The tile type expressed as a string.
+	 */
 
 	private TileType(boolean passable, double speedMod, String sType) {
 		//CTOR
@@ -29,4 +38,4 @@ public enum TileType {
 	}
 
 
-};
+}

@@ -1,11 +1,11 @@
 package GameEngine.WorldEngine.World;
 
-import java.util.Random;
-
 /**
  * @author Krystal Amaia
- * @version 0.0.1
- * @date 2014/06/10
+ *         <p>
+ *         The basic unit of a world.
+ *         </p>
+ * @version 0.1
  */
 public class World {
 
@@ -22,7 +22,6 @@ public class World {
 	private final int SIZE_Y;
 
 	private Tile[][] gWorld;
-	private static Random random = new Random();
 
 	/**
 	 * CTor
@@ -44,13 +43,14 @@ public class World {
 			for (int y = 0; y < SIZE_Y; y++) {
 				//create a new tile.
 				Tile tile = new Tile();
-				gWorld[x][y] = tile.setupTile(TileType.VOID);
+				gWorld[x][y] = tile;
 			}
 		}
 	}
 
 	/**
 	 * Creates a one dimensional 8 tile array containing the neighbors of the target cell.
+	 * NOTE: This method will be moved into world generator sooner or later.
 	 *
 	 * @param x the x Index of the cell we wish to gather the neighbors for.
 	 * @param y the y Index of the cell we wish to gather the neighbors for.
@@ -59,10 +59,9 @@ public class World {
 	private Tile[] getNeighbors(int x, int y) {
 		//Create a Tile Arrax to store all 8 of our neighbors in.  This makes things so much easier than what I was
 		// doing before.
-		Tile[] neighbors = {gWorld[x - 1][y - 1], gWorld[x - y][y], gWorld[x - 1][y + 1], gWorld[x][y - 1],
-			   gWorld[x][y + 1], gWorld[x + 1][y - 1], gWorld[x + 1][y], gWorld[x + 1][y + 1]};
 
-		return neighbors;
+		return new Tile[]{gWorld[x - 1][y - 1], gWorld[x - y][y], gWorld[x - 1][y + 1], gWorld[x][y - 1],
+			   gWorld[x][y + 1], gWorld[x + 1][y - 1], gWorld[x + 1][y], gWorld[x + 1][y + 1]};
 	}
 
 	/**

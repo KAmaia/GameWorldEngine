@@ -1,6 +1,6 @@
 package GameEngine.WorldEngine.Map;
 
-import GameEngine.WorldEngine.World.TileType;
+import GameEngine.WorldEngine.World.*;
 
 
 /**
@@ -14,8 +14,8 @@ public enum MapCharType {
 	DIRT(TileType.DIRT, '#'),
 	VOID(TileType.VOID, '~');
 
-	TileType tileType;
-	char     tileChar;
+	final TileType tileType;
+	final char     tileChar;
 
 	/**
 	 * @param tileType
@@ -27,7 +27,6 @@ public enum MapCharType {
 		this.tileType = tileType;
 		this.tileChar = tileChar;
 	}
-
 
 
 }

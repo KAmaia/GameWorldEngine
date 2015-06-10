@@ -21,7 +21,7 @@ public class BoundsChecker {
 	 *
 	 * @return true if address is out of bounds.
 	 */
-	public static <O extends Object> boolean checkBounds(int x, int y, O[][] objArray) {
+	public static <O> boolean checkBounds(int x, int y, O[][] objArray) {
 		return !(x > -1 && y > -1 && x < objArray.length && y < objArray[x].length);
 	}
 }
