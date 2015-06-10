@@ -12,6 +12,8 @@ import GameEngine.GraphicsEngine.*;
  */
 
 public class GraphicsEngineGenerator {
+
+
 	/**
 	 * Generates a new graphics engine based on the selected type.  As of this release only swingTerminal is
 	 * supported.
@@ -21,14 +23,14 @@ public class GraphicsEngineGenerator {
 	 *
 	 * @return a new graphicsEngine.
 	 */
-	public static GraphicsEngine generateEngine(GraphicsEngineType type) {
+	public static GraphicsEngine generateEngine(GraphicsEngineType type, int sizeX, int sizeY) {
 		GraphicsEngine engine;
 		switch (type) {
 			case SwingTerminal:
-				engine = new SwingTerminalGraphicsEngine();
+				engine = new SwingTerminalGraphicsEngine(sizeX, sizeY);
 				break;
 			default:
-				engine = new SwingTerminalGraphicsEngine();
+				engine = new SwingTerminalGraphicsEngine(sizeX, sizeY);
 				break;
 		}
 		return engine;

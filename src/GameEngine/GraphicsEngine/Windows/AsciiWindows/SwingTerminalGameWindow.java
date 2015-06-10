@@ -1,6 +1,7 @@
 package GameEngine.GraphicsEngine.Windows.AsciiWindows;
 
 import GameEngine.GraphicsEngine.Windows.*;
+import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.terminal.swing.*;
 
 /**
@@ -10,16 +11,29 @@ public class SwingTerminalGameWindow implements GameWindow {
 	private final int                SIZE_X;
 	private final int                SIZE_Y;
 	private       SwingTerminalFrame gameFrame;
+	private TerminalScreen gameScreen;
 
 	public SwingTerminalGameWindow(int sizeX, int sizeY) {
-		SIZE_X = sizeX;
-		SIZE_Y = sizeY;
 		gameFrame = new SwingTerminalFrame("test");
+		int fontHeight = gameFrame.getFontMetrics(gameFrame.getFont()).getHeight();
+		int fontWidth = gameFrame.getFontMetrics(gameFrame.getFont()).getMaxAdvance();
+
+
+		System.out.println("---" + fontHeight + "\n===" + fontWidth);
+		SIZE_X = sizeX * fontHeight;
+		SIZE_Y = sizeY * fontWidth;
+
+		gameFrame.setSize(SIZE_Y, SIZE_X);
 		gameFrame.setVisible(true);
+		update();
 	}
 
 	@Override
 	public void update() {
-
+		for (int y = 0; y < SIZE_Y; y++) {
+			gameFrame.setCursorPosition(y, 0);
+			gameFrame.putCharacter('*');
+		}
+		gameFrame.flush();
 	}
 }

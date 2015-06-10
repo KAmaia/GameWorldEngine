@@ -1,14 +1,17 @@
 package GameEngine.GraphicsEngine.AsciiEngine;
 
 import GameEngine.GraphicsEngine.*;
-import com.googlecode.lanterna.screen.*;
-import com.googlecode.lanterna.terminal.swing.*;
+import GameEngine.GraphicsEngine.Windows.AsciiWindows.*;
 
 /**
  * @author Krystal Amaia
  */
 public class SwingTerminalGraphicsEngine extends GraphicsEngine {
-	private SwingTerminal terminal;
-	private Screen        screen;
+
+	private SwingTerminalGameWindow STGW;
+
+	public SwingTerminalGraphicsEngine(int sizeX, int sizeY) {
+		STGW = new SwingTerminalGameWindow(sizeX, sizeY);
+	}
 
 }

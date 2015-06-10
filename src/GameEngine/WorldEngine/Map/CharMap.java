@@ -13,6 +13,8 @@ import GameEngine.Utilities.*;
 public class CharMap {
 
 	private final Character[][] charMap;
+	private int sizeX;
+	private int sizeY;
 
 	/**
 	 * Constructor
@@ -30,24 +32,40 @@ public class CharMap {
 
 	/**
 	 * Returns a mapTileChar for a given Tile
-	 * @param x X address of the tile to set.
-	 * @param y Y Address of the tile to set
-	 * @param mapTileChar The Character to set the tile to.
+	 *
+	 * @param x
+	 * 	   X address of the tile to set.
+	 * @param y
+	 * 	   Y Address of the tile to set
+	 * @param mapTileChar
+	 * 	   The Character to set the tile to.
 	 */
 	public void setTile(int x, int y, char mapTileChar) {
-		if (!BoundsChecker.checkBounds(x,y, charMap)) {
+		if (!BoundsChecker.checkBounds(x, y, charMap)) {
 			charMap[x][y] = mapTileChar;
 		}
 	}
 
 	/**
 	 * Gets a tile at a specific address
-	 * @param x X address of the tile to get
-	 * @param y Y address of the tile to get
+	 *
+	 * @param x
+	 * 	   X address of the tile to get
+	 * @param y
+	 * 	   Y address of the tile to get
+	 *
 	 * @return tile at position X,Y
 	 */
 
 	public char getMapTileChar(int x, int y) {
 		return charMap[x][y];
+	}
+
+	public int getSizeX() {
+		return sizeX;
+	}
+
+	public int getSizeY() {
+		return sizeY;
 	}
 }

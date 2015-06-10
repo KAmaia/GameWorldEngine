@@ -1,4 +1,5 @@
-import GameEngine.GraphicsEngine.Windows.AsciiWindows.*;
+import GameEngine.GraphicsEngine.*;
+import GameEngine.GraphicsEngine.GraphicsEngineGenerator.*;
 import GameEngine.WorldEngine.Map.*;
 import GameEngine.WorldEngine.MapGenerator.*;
 import GameEngine.WorldEngine.World.*;
@@ -14,11 +15,12 @@ import GameEngine.WorldEngine.WorldGenerator.*;
 
 public class Main {
 	public static void main(String[] args) {
-		int sizeX = 20;
-		int sizeY = 100;
+		int sizeX = 25;
+		int sizeY = 80;
 		World world = new WorldGenerator(sizeX, sizeY).generateWorld();
 		CharMap OWCM = new OverWorldMapGenerator().generateOverWorldCharMap(world);
-		SwingTerminalGameWindow gameWindow = new SwingTerminalGameWindow(sizeX, sizeY);
+		GraphicsEngine graphicsEngine = new GraphicsEngineGenerator()
+			   .generateEngine(GraphicsEngineType.SwingTerminal, sizeX, sizeY);
 		for (int x = 0; x < sizeX; x++) {
 
 			for (int y = 0; y < sizeY; y++) {
