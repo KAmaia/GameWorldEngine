@@ -5,5 +5,7 @@ package GameEngine.GraphicsEngine;
  */
 public abstract class GraphicsEngine {
 
+	public void update() {
+	}
 
 }
