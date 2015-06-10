@@ -1,4 +1,4 @@
-package GraphicsEngine.GraphicsEngineGenerator;
+package GameEngine.GraphicsEngine.GraphicsEngineGenerator;
 
 /**
  * @author Krystal Amaia

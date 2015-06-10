@@ -1,6 +1,6 @@
-package GraphicsEngine.AsciiEngine;
+package GameEngine.GraphicsEngine.AsciiEngine;
 
-import GraphicsEngine.*;
+import GameEngine.GraphicsEngine.*;
 
 /**
  * @author Krystal Amaia

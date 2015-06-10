@@ -1,7 +1,7 @@
-package GraphicsEngine.GraphicsEngineGenerator;
+package GameEngine.GraphicsEngine.GraphicsEngineGenerator;
 
-import GraphicsEngine.AsciiEngine.*;
-import GraphicsEngine.*;
+import GameEngine.GraphicsEngine.AsciiEngine.*;
+import GameEngine.GraphicsEngine.*;
 
 /**
  * @author Krystal Amaia
