@@ -9,49 +9,53 @@ import java.util.*;
  * @author Krystal Amaia
  */
 public class InventoryEngine {
-	private static final HashMap<UUID, ArrayList<Inventory>> INVENTORIES = new HashMap<UUID, ArrayList<Inventory>>();
-	private static final InventoryEngine                     instance    = new InventoryEngine();
+	InventoryManager inventoryManager;
 
-	private InventoryEngine() {
-
+	public InventoryEngine() {
+		inventoryManager = new InventoryManager();
 	}
 
-	public static InventoryEngine GetInstance() {
-		return instance;
+	public boolean hasInventoryManager() {
+		return !inventoryManager.equals(null);
 	}
 
-	public void addItemToInventory(UUID actorID, UUID inventoryId, Item item) {
-		if (actorOwnsInventory(actorID, inventoryId)) {
-			for (Inventory I : INVENTORIES.get(actorID)) {
-				if (item.isUnique()) {
-					if (!I.hasItem(item)) {
+
+	private class InventoryManager {
+
+		private final HashMap<UUID, ArrayList<Inventory>> INVENTORIES = new HashMap<UUID, ArrayList<Inventory>>();
+
+		private void addItemToInventory(UUID actorID, UUID inventoryId, Item item) {
+			if (actorOwnsInventory(actorID, inventoryId)) {
+				for (Inventory I : INVENTORIES.get(actorID)) {
+					if (item.isUnique()) {
+						if (!I.hasItem(item)) {
+							I.addItem(item);
+						}
+					}
+					else {
 						I.addItem(item);
 					}
 				}
-				else {
-					I.addItem(item);
-				}
-			}
-		}
-	}
-
-	public void addItemsToInventory(UUID actorId, UUID inventoryId, Item[] items) {
-		for (Item I : items) {
-			addItemToInventory(actorId, inventoryId, I);
-		}
-	}
-
-	private boolean actorOwnsInventory(UUID actorID, UUID inventoryId) {
-		if (INVENTORIES.containsKey(actorID)) {
-			for (Inventory I : INVENTORIES.get(actorID)) {
-				if (I.getID().equals(inventoryId)) {
-					return true;
-				}
 			}
 		}
 
-		return false;
+		public void addItemsToInventory(UUID actorId, UUID inventoryId, Item[] items) {
+			for (Item I : items) {
+				addItemToInventory(actorId, inventoryId, I);
+			}
+		}
+
+		private boolean actorOwnsInventory(UUID actorID, UUID inventoryId) {
+			if (INVENTORIES.containsKey(actorID)) {
+				for (Inventory I : INVENTORIES.get(actorID)) {
+					if (I.getID().equals(inventoryId)) {
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+
 	}
-
-
 }
