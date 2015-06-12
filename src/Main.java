@@ -21,6 +21,7 @@ public class Main {
 		CharMap OWCM = new OverWorldMapGenerator().generateOverWorldCharMap(world);
 		GraphicsEngine graphicsEngine = new GraphicsEngineGenerator()
 			   .generateEngine(GraphicsEngineType.SwingTerminal, sizeX, sizeY);
+		graphicsEngine.update(OWCM);
 		for (int x = 0; x < sizeX; x++) {
 
 			for (int y = 0; y < sizeY; y++) {
