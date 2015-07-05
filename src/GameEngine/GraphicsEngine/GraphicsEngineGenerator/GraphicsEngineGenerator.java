@@ -2,6 +2,7 @@ package GameEngine.GraphicsEngine.GraphicsEngineGenerator;
 
 import GameEngine.GraphicsEngine.AsciiEngine.*;
 import GameEngine.GraphicsEngine.*;
+import GameEngine.GraphicsEngine.SwingEngine.*;
 
 /**
  * @author Krystal Amaia
@@ -28,6 +29,9 @@ public class GraphicsEngineGenerator {
 		switch (type) {
 			case SwingTerminal:
 				engine = new SwingTerminalGraphicsEngine(sizeX, sizeY);
+				break;
+			case SwingGraphics:
+				engine = new SwingGraphicsEngine(sizeX, sizeY);
 				break;
 			default:
 				engine = new SwingTerminalGraphicsEngine(sizeX, sizeY);

@@ -5,7 +5,8 @@ package GameEngine.GraphicsEngine.GraphicsEngineGenerator;
  */
 public enum GraphicsEngineType {
 	Terminal(1),
-	SwingTerminal(2);
+	SwingTerminal(2),
+	SwingGraphics(3);
 
 	int type;
 

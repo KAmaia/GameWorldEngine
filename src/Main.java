@@ -17,18 +17,13 @@ public class Main {
 	public static void main(String[] args) {
 		int sizeX = 25;
 		int sizeY = 80;
+
 		World world = new WorldGenerator(sizeX, sizeY).generateWorld();
 		CharMap OWCM = new OverWorldMapGenerator().generateOverWorldCharMap(world);
-		GraphicsEngine graphicsEngine = new GraphicsEngineGenerator()
-			   .generateEngine(GraphicsEngineType.SwingTerminal, sizeX, sizeY);
-		graphicsEngine.update(OWCM);
-		for (int x = 0; x < sizeX; x++) {
 
-			for (int y = 0; y < sizeY; y++) {
-				System.out.print(OWCM.getMapTileChar(x, y));
-			}
-			System.out.print("\n");
-		}
+		GraphicsEngine graphicsEngine = new GraphicsEngineGenerator()
+			   .generateEngine(GraphicsEngineType.SwingGraphics, sizeX, sizeY);
+		graphicsEngine.update();
 
 	}
 }

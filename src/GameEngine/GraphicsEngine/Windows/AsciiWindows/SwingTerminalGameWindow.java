@@ -16,12 +16,10 @@ public class SwingTerminalGameWindow implements GameWindow {
 	public SwingTerminalGameWindow(int sizeX, int sizeY) {
 		gameFrame = new SwingTerminalFrame("test");
 		int fontHeight = gameFrame.getFontMetrics(gameFrame.getFont()).getHeight();
-		int fontWidth = gameFrame.getFontMetrics(gameFrame.getFont()).getMaxAdvance();
 
-
-		System.out.println("---" + fontHeight + "\n===" + fontWidth);
+		System.out.println("---" + fontHeight);
 		SIZE_X = sizeX * fontHeight;
-		SIZE_Y = sizeY * fontWidth;
+		SIZE_Y = sizeY;
 
 		gameFrame.setSize(SIZE_Y, SIZE_X);
 		gameFrame.setVisible(true);
