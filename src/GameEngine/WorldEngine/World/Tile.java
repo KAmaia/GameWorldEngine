@@ -1,5 +1,9 @@
 package GameEngine.WorldEngine.World;
 
+import GameEngine.Actors.*;
+
+import java.util.*;
+
 /**
  * @author Krystal Amaia
  *         <p>
@@ -11,9 +15,11 @@ package GameEngine.WorldEngine.World;
 public class Tile {
 
 	private TileType type;
+	private ArrayList<Actor> actors;
 
 	Tile() {
-		//CTOR
+		//CTOR: Return a void Tile everytime.
+		type = TileType.VOID;
 	}
 
 
@@ -49,6 +55,10 @@ public class Tile {
 		return type.speedmod;
 	}
 
-
+	@Override
+	public String toString() {
+		return type.toString;
+	}
 }
+
 //###End Tile###

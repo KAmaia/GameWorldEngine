@@ -24,4 +24,9 @@ public class BoundsChecker {
 	public static <O> boolean checkBounds(int x, int y, O[][] objArray) {
 		return !(x > -1 && y > -1 && x < objArray.length && y < objArray[x].length);
 	}
+
+	public static <O> boolean checkBounds(Coordinate position, O[][] objArray) {
+		return !(position.getX() > -1 && position.getY() > -1 && position.getX() < objArray.length && position
+			   .getY() < objArray[position.getX()].length);
+	}
 }

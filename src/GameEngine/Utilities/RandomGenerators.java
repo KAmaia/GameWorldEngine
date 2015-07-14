@@ -1,7 +1,7 @@
 package GameEngine.Utilities;
 
 
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author Krystal Amaia
@@ -36,4 +36,6 @@ public class RandomGenerators {
 	public static float nextFloatInRange(float max, float min) {
 		return rand.nextFloat() * ((max - min) + min);
 	}
+
+
 }

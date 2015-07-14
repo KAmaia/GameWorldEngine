@@ -1,5 +1,6 @@
 package GameEngine.WorldEngine.MapGenerator;
 
+/*
 import GameEngine.WorldEngine.Map.*;
 import GameEngine.WorldEngine.World.*;
 
@@ -10,7 +11,7 @@ import GameEngine.WorldEngine.World.*;
  *          Generates an OverWorld Map.
  *         </p>
  * @version 0.1
- */
+ *
 public class OverWorldMapGenerator {
 
 	/**
@@ -20,7 +21,7 @@ public class OverWorldMapGenerator {
 	 * 	   the world to map
 	 *
 	 * @return the map that is created.
-	 */
+	 *
 	public CharMap generateOverWorldCharMap(World world) {
 		CharMap charMap = new CharMap(world.getSIZE_X(), world.getSIZE_Y());
 
@@ -35,5 +36,6 @@ public class OverWorldMapGenerator {
 	}
 
 }
+*/
 
 

@@ -1,5 +1,8 @@
 package GameEngine.WorldEngine.World;
 
+import GameEngine.Actors.*;
+import GameEngine.Utilities.*;
+
 /**
  * @author Krystal Amaia
  *         <p>
@@ -25,8 +28,11 @@ public class World {
 
 	/**
 	 * CTor
-	 * @param sizeX The Height of the World.
-	 * @param sizeY The Width of the World
+	 *
+	 * @param sizeX
+	 * 	   The Height of the World.
+	 * @param sizeY
+	 * 	   The Width of the World
 	 */
 	public World(int sizeX, int sizeY) {
 		SIZE_X = sizeX;
@@ -52,8 +58,11 @@ public class World {
 	 * Creates a one dimensional 8 tile array containing the neighbors of the target cell.
 	 * NOTE: This method will be moved into world generator sooner or later.
 	 *
-	 * @param x the x Index of the cell we wish to gather the neighbors for.
-	 * @param y the y Index of the cell we wish to gather the neighbors for.
+	 * @param x
+	 * 	   the x Index of the cell we wish to gather the neighbors for.
+	 * @param y
+	 * 	   the y Index of the cell we wish to gather the neighbors for.
+	 *
 	 * @return a tile array of neighbors
 	 */
 	private Tile[] getNeighbors(int x, int y) {
@@ -65,15 +74,16 @@ public class World {
 	}
 
 	/**
+	 * @param x
+	 * 	   x address of tile to get.
+	 * @param y
+	 * 	   y address of tile to get.
 	 *
-	 * @param x x address of tile to get.
-	 * @param y y address of tile to get.
 	 * @return tile at address [x][y].
 	 */
 	public Tile getTile(int x, int y) {
 		return gWorld[x][y];
 	}
-
 
 
 	public World generateWorld() {
@@ -89,11 +99,17 @@ public class World {
 	public Tile[][] getTiles() {
 		return gWorld;
 	}
-	public int getSIZE_X(){
+
+	public int getSIZE_X() {
 		return SIZE_X;
 	}
-	public int getSIZE_Y(){
+
+	public int getSIZE_Y() {
 		return SIZE_Y;
+	}
+
+	public boolean requestMove(Actor actor) {
+		return BoundsChecker.checkBounds(actor.getPosition(), gWorld);
 	}
 }
 

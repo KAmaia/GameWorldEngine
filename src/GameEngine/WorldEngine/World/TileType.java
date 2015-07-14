@@ -17,7 +17,14 @@ public enum TileType {
 
 	final boolean passable;
 	final double  speedmod;
-	final String  sType;
+	final String toString;
+
+
+	TileType(boolean passable, double speedMod, String toString) {
+		this.passable = passable;
+		this.speedmod = speedMod;
+		this.toString = toString;
+	}
 
 	/**
 	 * Enumerator constructor.  Never used Externally.
@@ -26,16 +33,10 @@ public enum TileType {
 	 * 	   is the tile passable.
 	 * @param speedMod
 	 * 	   the tiles speed mod.
-	 * @param sType
+	 * @param toString
 	 * 	   The tile type expressed as a string.
 	 */
 
-	private TileType(boolean passable, double speedMod, String sType) {
-		//CTOR
-		this.passable = passable;
-		this.speedmod = speedMod;
-		this.sType = sType;
-	}
 
 
 }

@@ -42,7 +42,8 @@
 
 
  *
- *
+ * Swing Graphics Engine behavior:
+ * 
  *
  *
  *
