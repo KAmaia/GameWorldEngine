@@ -6,35 +6,50 @@ package GameEngine.Utilities;
 public class CoordinateUtils {
 	public static Coordinate normalizedCoordinate(Coordinate start, Coordinate finish) {
 
-		if (start.getX() < finish.getX() && start.getY() < finish.getY()) {
-			return new Coordinate(start.getX() + 1, start.getY() + 1);
-		}
-		else if (start.getX() < finish.getX() && start.getY() == finish.getY()) {
-			return new Coordinate(start.getX() + 1, start.getY());
-		}
+		return new Coordinate(0, 0);
+	}
 
-		else if (start.getX() < finish.getX() && start.getY() > finish.getY()) {
-			return new Coordinate(start.getX() + 1, start.getY() - 1);
-		}
-		else if (start.getX() == finish.getX() && start.getY() < finish.getY()) {
-			return new Coordinate(start.getX(), start.getY() + 1);
-		}
+	public static boolean areCoordsTheSame(Coordinate a, Coordinate b) {
+		return false;
+	}
 
-		else if (start.getX() == finish.getX() && start.getY() > finish.getY()) {
-			return new Coordinate(start.getX(), start.getY() - 1);
-
+	public static Direction directionToTarget(Coordinate start, Coordinate finish) {
+		boolean north = start.getX() - finish.getX() > 0;
+		boolean east = start.getY() - finish.getY() < 0;
+		boolean south = start.getX() - finish.getX() < 0;
+		boolean west = start.getY() - finish.getY() > 0;
+		Direction d;
+		if (north) {
+			if (west) {
+				d = Direction.NORTHWEST;
+			}
+			else if (east) {
+				d = Direction.NORTHEAST;
+			}
+			else {
+				d = Direction.NORTH;
+			}
 		}
-		else if (start.getX() > finish.getX() && start.getY() < finish.getY()) {
-			return new Coordinate(start.getX() - 1, start.getY() + 1);
+		else if (south) {
+			if (west) {
+				d = Direction.SOUTHWEST;
+			}
+			else if (east) {
+				d = Direction.SOUTHEAST;
+			}
+			else {
+				d = Direction.SOUTH;
+			}
 		}
-		else if (start.getX() > finish.getX() && start.getY() == finish.getY()) {
-			return new Coordinate(start.getX() - 1, start.getY());
+		else if (west) {
+			d = Direction.WEST;
 		}
-		else if (start.getX() > finish.getX() && start.getY() > finish.getY()) {
-			return new Coordinate(start.getX() - 1, start.getY() - 1);
+		else if (east) {
+			d = Direction.EAST;
 		}
 		else {
-			return start;
+			d = Direction.NullDirection;
 		}
+		return d;
 	}
 }

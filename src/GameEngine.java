@@ -1,5 +1,4 @@
-import GameEngine.PathFinder.*;
-import GameEngine.Utilities.*;
+import GameEngine.Actors.*;
 import GameEngine.WorldEngine.World.*;
 import GameEngine.WorldEngine.WorldGenerator.*;
 
@@ -20,16 +19,13 @@ public class GameEngine {
 
 		World world = new WorldGenerator(sizeX, sizeY).generateWorld();
 
-		PathFinder pf = new PathFinder(world.getTiles());
+
 		int i = 0;
-		while (i < 10) {
-			System.out.println("Run #: " + i + "=========");
-			pf.createPath(new Coordinate(RandomGenerators.nextIntInRange(0, sizeX),
-			                             RandomGenerators.nextIntInRange(0, sizeY)),
-			              new Coordinate(RandomGenerators.nextIntInRange(0, sizeX),
-			                             RandomGenerators.nextIntInRange(0, sizeY)));
+		Actor a = new Actor(world);
+		while (i <= 10) {
+			System.out.println("Loop # " + i);
+			a.act();
 			i++;
-			System.out.println("End Run #: " + i + "=====");
 		}
 	}
 

@@ -16,10 +16,8 @@ public class WorldGenerator {
 	 * Default Constructor
 	 */
 	public WorldGenerator() {
-		int DEFAULT_SIZE_X = 100;
-		SIZE_X = DEFAULT_SIZE_X;
-		int DEFAULT_SIZE_Y = 100;
-		SIZE_Y = DEFAULT_SIZE_Y;
+		SIZE_X = 100;
+		SIZE_Y = 100;
 	}
 
 	/**

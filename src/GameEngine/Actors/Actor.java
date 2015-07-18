@@ -9,48 +9,78 @@ import java.util.*;
 /**
  * @author Krystal Amaia
  */
-public abstract class Actor {
+public class Actor {
 	float sight;
+	int index = 1;
 	private boolean    alive;
-	private Coordinate position;
 	/*
 		physicalSatus<health, hunger>
 		mentalStatus<curious, hungry>
 	 */
+	private Coordinate position;
 	private ArrayList<Float> phyiscalStatus = new ArrayList<Float>();
 	private ArrayList<Float> mentalStatus   = new ArrayList<Float>();
-	private float speed;
-
-	private Tile[][]   knownWorld;
-	private boolean    selected;
-	private PathFinder pathFinder;
+	private float          speed;
+	private Coordinate[][] knownWorld;
+	private boolean        selected;
+	private PathFinder     pathFinder;
+	private boolean        isMoving;
+	private boolean        idle;
+	private Path           currentPath;
 
 	public Actor(World world) {
-		knownWorld = new Tile[world.getSIZE_X()][world.getSIZE_Y()];
+		knownWorld = new Coordinate[world.getSIZE_X()][world.getSIZE_Y()];
 		pathFinder = new PathFinder(world.getTiles());
-		int positionX = RandomGenerators.nextIntInRange(world.getSIZE_X(), 0);
-		int positionY = RandomGenerators.nextIntInRange(world.getSIZE_Y(), 0);
+		int positionX = RandomGenerators.nextIntInRange(0, world.getSIZE_X());
+		int positionY = RandomGenerators.nextIntInRange(0, world.getSIZE_Y());
 
 
 		position = new Coordinate(positionX, positionY);
+		currentPath = pathFinder.createPath(position,
+		                                    new Coordinate(RandomGenerators.nextIntInRange(0, world.getSIZE_X()),
+		                                                   RandomGenerators.nextIntInRange(0, world.getSIZE_Y())));
+
 		sight = 1.0f;
 		alive = true;
 	}
 
-	private void iniitateStatus() {
-		phyiscalStatus.add(5.0f);
-		phyiscalStatus.add(0.5f);
-
-		mentalStatus.add(0.5f);
-		mentalStatus.add(0.5f);
-
-	}
 
 	public void act() {
-		//make decisions as far as what to do.
+		if (idle) {
+			idleAction();
+		}
+		else {
+			moveAlongPath(currentPath);
+		}
+	}
+
+	protected void idleAction() {
 
 	}
 
+
+	private void move(Coordinate target) {
+		position = target;
+	}
+
+	private void explore() {
+
+	}
+
+	private void moveAlongPath(Path path) {
+
+		if (!(index == path.size())) {
+			isMoving = true;
+			position = path.toArray(index);
+			System.out.println("Moving to: " + position.toString());
+			System.out.println(isMoving);
+			index++;
+		}
+		else {
+			isMoving = false;
+		}
+
+	}
 
 	public Coordinate getPosition() {
 		return position;

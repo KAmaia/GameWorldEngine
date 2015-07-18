@@ -13,38 +13,62 @@ public class PathFinder {
 		World = world;
 	}
 
-	public void createPath(Coordinate start, Coordinate finish) {
+	public Path createPath(Coordinate start, Coordinate finish) {
 		System.out.println("**Pathfinder - createPath()");
 		System.out.println("Creating path between: " + start.toString() + " & " + finish.toString());
 		System.out.println("\t-Path Length = " + getPathLength(start, finish));
 
-		Coordinate[] path;
-
-		int length = getPathLength(start, finish);
+		Path path = new Path(start);
 		Coordinate current = start;
+		boolean b = true;
+		while (b) {
+			switch (CoordinateUtils.directionToTarget(current, finish)) {
+				case NORTH:
+					current = new Coordinate(current.getX() - 1, current.getY());
+					path.addToPath(current);
+					break;
+				case SOUTH:
 
-		System.out.println("\t\t--Pre-loop current: " + current.toString());
-		System.out.println("\t\t--Pre-loop length: " + length);
-		System.out.println("\t\t--pre-loop finish: " + finish.toString());
+					current = new Coordinate(current.getX() + 1, current.getY());
+					path.addToPath(current);
+					break;
+				case EAST:
 
-		path = new Coordinate[length];
-		path[0] = start;
-		int i = 0;
-		while (!current.equals(finish) && i < length) {
-			System.out.println("\t-Picking Path");
-			System.out.println("\t\t--Current Coordinate: " + current.toString());
-			Coordinate tmp = current;
-			current = pickCoord(tmp, finish);
-			path[i] = current;
-			i++;
+					current = new Coordinate(current.getX(), current.getY() + 1);
+					path.addToPath(current);
+					break;
+				case WEST:
+					current = new Coordinate(current.getX(), current.getY() - 1);
+					path.addToPath(current);
+					break;
+				case NORTHEAST:
+					current = new Coordinate(current.getX() - 1, current.getY() + 1);
+					path.addToPath(current);
+					break;
+				case NORTHWEST:
+					current = new Coordinate(current.getX() - 1, current.getY() - 1);
+					path.addToPath(current);
+					break;
+				case SOUTHEAST:
+					current = new Coordinate(current.getX() + 1, current.getY() + 1);
+					path.addToPath(current);
+					break;
+				case SOUTHWEST:
+					current = new Coordinate(current.getX() + 1, current.getY() - 1);
+					path.addToPath(current);
+					break;
+				default:
+					b = false;
+			}
+
 		}
+
 		verifyPath(path);
+		return path;
 	}
 
-	private void verifyPath(Coordinate[] path) {
-		for (Coordinate c : path) {
-			System.out.println(c.toString());
-		}
+	private void verifyPath(Path path) {
+		path.Print();
 	}
 
 	private int getPathLength(Coordinate start, Coordinate finish) {
@@ -60,6 +84,7 @@ public class PathFinder {
 	}
 
 	private Coordinate pickCoord(Coordinate start, Coordinate finish) {
+		//pick random coordinate between start & finish.
 
 		return CoordinateUtils.normalizedCoordinate(start, finish);
 	}
